@@ -1,7 +1,7 @@
 ---
-title: "ASN5.2. Paper Replication: Make Figure 1"
-author: "2024 FIRE198 Sustainability Analytics"
-format: html
+title: "Paper Replication Assignment 2: Make Figure 1"
+author: "FIRE Sustainability Analytics"
+format: gfm
 editor: visual
 ---
 
@@ -20,6 +20,7 @@ Step 1: Use the **library** function to declare that you will use the **tidyvers
 Step 2: The script below uploads data from year 2001 into the RStudio environment. You just need to run it.
 
 ```{r}
+#| eval: false
 df2001<-read.csv("EPA AMPD/emission_2001.csv")
 ```
 
@@ -32,6 +33,7 @@ Step 3: Upload data from year 2002, 2005, 2006, and 2007 into the RStudio enviro
 Step 4: Run the code chunk below and answer Question 1.
 
 ```{r}
+#| eval: false
 df2<-df %>% 
   mutate(NOx_emit=ifelse(is.na(NOx..tons.),0,NOx..tons.))
 ```
@@ -53,12 +55,14 @@ Step 1: In this step, you will identify states that were regulated by the NOx Bu
 Step 2: The script below creates a vector of unique states in df3. You just have to run it.
 
 ```{r}
+#| eval: false
 nbp_states<-unique(df3$State)
 ```
 
 Step 3: The script below keeps only states regulated states in df4. You just have to run it.
 
 ```{r}
+#| eval: false
 df_nbp<-df2 %>%
   filter(State %in% nbp_states)
 ```
@@ -67,11 +71,11 @@ df_nbp<-df2 %>%
 
 #### Question 1: What is the x-axis in Figure 1? (1 point)
 
-#### Answer: 
+#### Answer:
 
 #### Question 2: What is the y-axis in Figure 1? (1 points)
 
-#### Answer: 
+#### Answer:
 
 Step 2: Before finding the average daily total NOx emissions, we need to the total monthly NOx emissions. Create a new dataframe called **df_nbp2** from **df_nbp**. Use the **group_by** and **summarize** functions to find the total NOx emissions for each month and year. Name the new column **NOx_emit**. **(2 points)**
 
@@ -93,7 +97,6 @@ Step 3.2: Create a new dataframe called **df_nbp4** from **df_nbp3**. Create a n
 
 ```{r}
 
-                          NOx_daily))
 ```
 
 Step 3.2: Create a new dataframe called **df_nbp5** from **df_nbp4**. Create a new column called **NOx_daily** equal to **NOx_emit/28** if the month February. Otherwise, **NOx_daily** is equal to **NOx_daily**. **(3 points)**
@@ -113,6 +116,7 @@ We then use the **mutate** and **yday** functions to create a new column called 
 This is shown in the script below. You just have to run it.
 
 ```{r}
+#| eval: false
 df_nbp6<-df_nbp5 %>%
   mutate(date=paste("01",as.character(Month), as.character(Year))) %>%
   mutate(date=as.Date(date, format="%d %m %Y")) %>%
@@ -158,6 +162,7 @@ Hint: You learned how to do this in [this video](https://campus.datacamp.com/cou
 Step 2: The script below modifies the aesthetics of the plot that you have created to match the published paper. You just have to run it.
 
 ```{r}
+#| eval: false
 df_nbp9$phase<-relevel(df_nbp9$phase,"2005-2007")
 
 ggplot(data=df_nbp9, aes(x=doy, y=NOx_th, group=phase)) +
@@ -170,13 +175,13 @@ ggplot(data=df_nbp9, aes(x=doy, y=NOx_th, group=phase)) +
 
 Hint: You can find the answer in the Introduction section of [this paper](https://pubs.aeaweb.org/doi/pdfplus/10.1257/aer.20131002).
 
-#### Answer: 
+#### Answer:
 
 #### Question 4: Why is the line plot you created smoother than the original plot in the paper? (1 point)
 
 Hint: Think about the frequency of the data.
 
-#### Answer: 
+#### Answer:
 
 Step 3: Click Render to generate an html file of this document. **(1 point)**
 

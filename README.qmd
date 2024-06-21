@@ -99,7 +99,7 @@ Step 3.2: Create a new dataframe called **df_nbp4** from **df_nbp3**. Create a n
 
 ```
 
-Step 3.2: Create a new dataframe called **df_nbp5** from **df_nbp4**. Create a new column called **NOx_daily** equal to **NOx_emit/28** if the month February. Otherwise, **NOx_daily** is equal to **NOx_daily**. **(3 points)**
+Step 3.3: Create a new dataframe called **df_nbp5** from **df_nbp4**. Create a new column called **NOx_daily** equal to **NOx_emit/28** if the month February. Otherwise, **NOx_daily** is equal to **NOx_daily**. **(3 points)**
 
 ```{r}
 

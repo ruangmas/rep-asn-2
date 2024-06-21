@@ -95,7 +95,7 @@ Create a new column called **NOx_daily** equal to **NOx_emit/30** if the
 month is April, June, September, or November. Otherwise, **NOx_daily**
 is equal to **NOx_daily**. **(4 points)**
 
-Step 3.2: Create a new dataframe called **df_nbp5** from **df_nbp4**.
+Step 3.3: Create a new dataframe called **df_nbp5** from **df_nbp4**.
 Create a new column called **NOx_daily** equal to **NOx_emit/28** if the
 month February. Otherwise, **NOx_daily** is equal to **NOx_daily**. **(3
 points)**
